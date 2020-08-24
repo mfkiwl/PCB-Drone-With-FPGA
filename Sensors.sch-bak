@@ -1,0 +1,68 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 7
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Sensor_Motion:ICM-20948 U401
+U 1 1 5F4BD0F1
+P 3850 3050
+F 0 "U401" H 3850 2261 50  0000 C CNN
+F 1 "ICM-20948" H 3850 2170 50  0000 C CNN
+F 2 "Sensor_Motion:InvenSense_QFN-24_3x3mm_P0.4mm" H 3850 2050 50  0001 C CNN
+F 3 "http://www.invensense.com/wp-content/uploads/2016/06/DS-000189-ICM-20948-v1.3.pdf" H 3850 2900 50  0001 C CNN
+F 4 "1428-1123-1-ND" H 3850 3050 50  0001 C CNN "DigiKey"
+F 5 "410-ICM-20948 " H 3850 3050 50  0001 C CNN "Mouser"
+	1    3850 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor_Motion:BNO055 U402
+U 1 1 5F4BD31D
+P 6350 3050
+F 0 "U402" H 6350 3931 50  0000 C CNN
+F 1 "BNO055" H 6350 3840 50  0000 C CNN
+F 2 "Package_LGA:LGA-28_5.2x3.8mm_P0.5mm" H 6600 2400 50  0001 L CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST_BNO055_DS000_14.pdf" H 6350 3250 50  0001 C CNN
+F 4 "828-1058-1-ND" H 6350 3050 50  0001 C CNN "DigiKey"
+F 5 "262-BNO055 " H 6350 3050 50  0001 C CNN "Mouser"
+	1    6350 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L 2020-08-24_12-35-16:DPS422XTSA1 U403
+U 1 1 5F4C1DB6
+P 7850 2950
+F 0 "U403" H 8650 3337 60  0000 C CNN
+F 1 "DPS422XTSA1" H 8650 3231 60  0000 C CNN
+F 2 "footprints:DPS422XTSA1" H 8650 3190 60  0001 C CNN
+F 3 "" H 7850 2950 60  0000 C CNN
+F 4 "DPS422XTSA1CT-ND" H 7850 2950 50  0001 C CNN "DigiKey"
+F 5 "726-DPS422XTSA1 " H 7850 2950 50  0001 C CNN "Mouser"
+	1    7850 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Analog_ADC:MCP3208 U404
+U 1 1 5F4C395E
+P 8700 5000
+F 0 "U404" H 8700 5681 50  0000 C CNN
+F 1 "MCP3208" H 8700 5590 50  0000 C CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 8800 5100 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf" H 8800 5100 50  0001 C CNN
+F 4 "MCP3208-CI/SL-ND" H 8700 5000 50  0001 C CNN "DigiKey"
+F 5 "579-MCP3208CISL " H 8700 5000 50  0001 C CNN "Mouser"
+	1    8700 5000
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
