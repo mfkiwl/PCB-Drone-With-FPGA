@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 7
+Sheet 1 11
 Title "Drone PCB with FPGA"
 Date "2020-08-24"
 Rev "1"
@@ -750,4 +750,116 @@ U 5F439C80
 F0 "FPGA Pin Listings" 59
 F1 "FPGA-Pinning.sch" 59
 $EndSheet
+$Sheet
+S 11800 3600 650  350 
+U 5F48BAA4
+F0 "FPGA Part 1" 50
+F1 "FPGA1.sch" 50
+$EndSheet
+$Sheet
+S 11800 4200 650  350 
+U 5F48BB24
+F0 "FPGA Part 2" 50
+F1 "FPGA2.sch" 50
+$EndSheet
+$Sheet
+S 11800 4800 650  350 
+U 5F48BB5C
+F0 "FPGA Part 3" 50
+F1 "FPGA3.sch" 50
+$EndSheet
+$Sheet
+S 11800 5400 650  350 
+U 5F48BB9F
+F0 "FPGA Power" 50
+F1 "FPGA-Power.sch" 50
+$EndSheet
+$Comp
+L Mechanical:MountingHole H101
+U 1 1 5F590337
+P 7900 5800
+F 0 "H101" H 8000 5846 50  0000 L CNN
+F 1 "MountingHole" H 8000 5755 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 7900 5800 50  0001 C CNN
+F 3 "~" H 7900 5800 50  0001 C CNN
+	1    7900 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H102
+U 1 1 5F590503
+P 7900 6000
+F 0 "H102" H 8000 6046 50  0000 L CNN
+F 1 "MountingHole" H 8000 5955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 7900 6000 50  0001 C CNN
+F 3 "~" H 7900 6000 50  0001 C CNN
+	1    7900 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H103
+U 1 1 5F5906F2
+P 7900 6200
+F 0 "H103" H 8000 6246 50  0000 L CNN
+F 1 "MountingHole" H 8000 6155 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 7900 6200 50  0001 C CNN
+F 3 "~" H 7900 6200 50  0001 C CNN
+	1    7900 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H104
+U 1 1 5F59086E
+P 7900 6400
+F 0 "H104" H 8000 6446 50  0000 L CNN
+F 1 "MountingHole" H 8000 6355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 7900 6400 50  0001 C CNN
+F 3 "~" H 7900 6400 50  0001 C CNN
+	1    7900 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H105
+U 1 1 5F5AA6FB
+P 8750 5800
+F 0 "H105" H 8850 5846 50  0000 L CNN
+F 1 "MountingHole" H 8850 5755 50  0000 L CNN
+F 2 "MountingHole:MountingHole_6mm" H 8750 5800 50  0001 C CNN
+F 3 "~" H 8750 5800 50  0001 C CNN
+	1    8750 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H106
+U 1 1 5F5AAA41
+P 8750 6000
+F 0 "H106" H 8850 6046 50  0000 L CNN
+F 1 "MountingHole" H 8850 5955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_6mm" H 8750 6000 50  0001 C CNN
+F 3 "~" H 8750 6000 50  0001 C CNN
+	1    8750 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H107
+U 1 1 5F5AAC72
+P 8750 6200
+F 0 "H107" H 8850 6246 50  0000 L CNN
+F 1 "MountingHole" H 8850 6155 50  0000 L CNN
+F 2 "MountingHole:MountingHole_6mm" H 8750 6200 50  0001 C CNN
+F 3 "~" H 8750 6200 50  0001 C CNN
+	1    8750 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H108
+U 1 1 5F5AAED1
+P 8750 6400
+F 0 "H108" H 8850 6446 50  0000 L CNN
+F 1 "MountingHole" H 8850 6355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_6mm" H 8750 6400 50  0001 C CNN
+F 3 "~" H 8750 6400 50  0001 C CNN
+	1    8750 6400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

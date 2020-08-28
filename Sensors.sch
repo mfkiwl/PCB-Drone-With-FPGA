@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 7
+Sheet 4 11
 Title ""
 Date ""
 Rev ""
@@ -66,10 +66,10 @@ F 5 "579-MCP3208CISL " H 8700 5000 50  0001 C CNN "Mouser"
 	1    0    0    -1  
 $EndComp
 $Comp
-L dk_Logic-Translators-Level-Shifters:TXB0104PWR U?
+L dk_Logic-Translators-Level-Shifters:TXB0104PWR U405
 U 1 1 5F4C621A
 P 10150 5000
-F 0 "U?" H 10100 4403 60  0000 C CNN
+F 0 "U405" H 10100 4403 60  0000 C CNN
 F 1 "TXB0104PWR" H 10100 4297 60  0000 C CNN
 F 2 "digikey-footprints:TSSOP-14_W4.4mm" H 10350 5200 60  0001 L CNN
 F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftxb0104" H 10350 5300 60  0001 L CNN

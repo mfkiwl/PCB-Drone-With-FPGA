@@ -1,4 +1,4 @@
-update=08/24/20 09:03:59
+update=08/28/20 12:13:39
 version=1
 last_client=kicad
 [general]
@@ -18,7 +18,7 @@ PageLayoutDescrFile=EE-Layout.kicad_wks
 PlotDirectoryName=
 SubpartIdSeparator=0
 SubpartFirstId=65
-NetFmtName=
+NetFmtName=Pcbnew
 SpiceAjustPassiveValues=0
 LabSize=50
 ERC_TestSimilarLabels=1
@@ -40,9 +40,10 @@ MinMicroViaDrill=0.09999999999999999
 MinHoleToHole=0.5399999999999999
 TrackWidth1=0.127
 TrackWidth2=0.25
-TrackWidth3=0.5
-TrackWidth4=0.75
-TrackWidth5=1
+TrackWidth3=0.29337
+TrackWidth4=0.5
+TrackWidth5=0.75
+TrackWidth6=1
 ViaDiameter1=0.45
 ViaDrill1=0.2
 ViaDiameter2=0.6
@@ -73,7 +74,7 @@ OthersTextSizeThickness=0.15
 OthersTextItalic=0
 OthersTextUpright=1
 SolderMaskClearance=0.05
-SolderMaskMinWidth=0
+SolderMaskMinWidth=0.2
 SolderPasteClearance=0
 SolderPasteRatio=-0
 [pcbnew/Layer.F.Cu]
