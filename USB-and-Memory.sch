@@ -16,10 +16,10 @@ $EndDescr
 Text Notes 4800 1600 0    59   ~ 0
 USB: FTDI FT232H or FTDI FT232R\n\nMemory: Memory for FPGA bitstream data: MT25QL128ABA (non-JLC part)\n\nMemory: For FPGA user accessable data storage: W25Q128JVSIQ \n
 $Comp
-L Interface_USB:FT232H U?
+L Interface_USB:FT232H U301
 U 1 1 5F5894AD
 P 3000 3800
-F 0 "U?" H 3000 5481 50  0000 C CNN
+F 0 "U301" H 3000 5481 50  0000 C CNN
 F 1 "FT232H" H 3000 5390 50  0000 C CNN
 F 2 "Package_QFP:LQFP-48_7x7mm_P0.5mm" H 3000 3800 50  0001 C CNN
 F 3 "https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf" H 3000 3800 50  0001 C CNN

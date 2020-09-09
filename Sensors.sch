@@ -66,25 +66,43 @@ F 5 "579-MCP3208CISL " H 8700 5000 50  0001 C CNN "Mouser"
 	1    0    0    -1  
 $EndComp
 $Comp
-L dk_Logic-Translators-Level-Shifters:TXB0104PWR U405
-U 1 1 5F4C621A
-P 10150 5000
-F 0 "U405" H 10100 4403 60  0000 C CNN
-F 1 "TXB0104PWR" H 10100 4297 60  0000 C CNN
-F 2 "digikey-footprints:TSSOP-14_W4.4mm" H 10350 5200 60  0001 L CNN
-F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftxb0104" H 10350 5300 60  0001 L CNN
-F 4 "296-21929-1-ND" H 10350 5400 60  0001 L CNN "Digi-Key_PN"
-F 5 "TXB0104PWR" H 10350 5500 60  0001 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 10350 5600 60  0001 L CNN "Category"
-F 7 "Logic - Translators, Level Shifters" H 10350 5700 60  0001 L CNN "Family"
-F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftxb0104" H 10350 5800 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/texas-instruments/TXB0104PWR/296-21929-1-ND/1629282" H 10350 5900 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC TRNSLTR BIDIRECTIONAL 14TSSOP" H 10350 6000 60  0001 L CNN "Description"
-F 11 "Texas Instruments" H 10350 6100 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 10350 6200 60  0001 L CNN "Status"
-F 13 "296-21929-1-ND" H 10150 5000 50  0001 C CNN "DigiKey"
-F 14 "595-TXB0104PWR " H 10150 5000 50  0001 C CNN "Mouser"
-	1    10150 5000
+L dk_Logic-Translators-Level-Shifters:TXB0108PWR U406
+U 1 1 5F5EB69B
+P 10050 5200
+F 0 "U406" H 10000 4403 60  0000 C CNN
+F 1 "TXB0108PWR" H 10000 4297 60  0000 C CNN
+F 2 "digikey-footprints:TSSOP-20_W4.4mm" H 10250 5400 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftxb0108" H 10250 5500 60  0001 L CNN
+F 4 "296-21527-1-ND" H 10250 5600 60  0001 L CNN "Digi-Key_PN"
+F 5 "TXB0108PWR" H 10250 5700 60  0001 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 10250 5800 60  0001 L CNN "Category"
+F 7 "Logic - Translators, Level Shifters" H 10250 5900 60  0001 L CNN "Family"
+F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftxb0108" H 10250 6000 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/texas-instruments/TXB0108PWR/296-21527-1-ND/1305700" H 10250 6100 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC TRNSLTR BIDIRECTIONAL 20TSSOP" H 10250 6200 60  0001 L CNN "Description"
+F 11 "Texas Instruments" H 10250 6300 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 10250 6400 60  0001 L CNN "Status"
+	1    10050 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L dk_Logic-Translators-Level-Shifters:TXB0108PWR U405
+U 1 1 5F5F3BD5
+P 2000 3000
+F 0 "U405" H 1950 2203 60  0000 C CNN
+F 1 "TXB0108PWR" H 1950 2097 60  0000 C CNN
+F 2 "digikey-footprints:TSSOP-20_W4.4mm" H 2200 3200 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftxb0108" H 2200 3300 60  0001 L CNN
+F 4 "296-21527-1-ND" H 2200 3400 60  0001 L CNN "Digi-Key_PN"
+F 5 "TXB0108PWR" H 2200 3500 60  0001 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 2200 3600 60  0001 L CNN "Category"
+F 7 "Logic - Translators, Level Shifters" H 2200 3700 60  0001 L CNN "Family"
+F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftxb0108" H 2200 3800 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/texas-instruments/TXB0108PWR/296-21527-1-ND/1305700" H 2200 3900 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC TRNSLTR BIDIRECTIONAL 20TSSOP" H 2200 4000 60  0001 L CNN "Description"
+F 11 "Texas Instruments" H 2200 4100 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 2200 4200 60  0001 L CNN "Status"
+	1    2000 3000
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

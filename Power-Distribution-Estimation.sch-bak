@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Text Notes 6100 2250 0    59   ~ 0
-Ideas so far:\n\n5v, 3v3, 1v2 volt rails, all by TPS54331 TI step down regulators. 3A capable.\n2v5 reference rail with an LDO\n\nPower in: 10v 2A From 4-in-1 ESC\nAlternate: 5v from DC plug or USB. Add jumper to enable switching between supplies
+Ideas so far:\n\n5v, 3v3, 1v2 volt rails, all by TPS54331 TI step down regulators. 3A capable.\n2v5 reference rail with an LDO\n1v8 for IMU \n\nPower in: 10v 2A From 4-in-1 ESC\nAlternate: 5v from DC plug or USB. Add jumper to enable switching between supplies
 $Comp
 L SamacSys_Parts:TPS54331DR U201
 U 1 1 5F564651
@@ -132,10 +132,10 @@ $EndComp
 Wire Wire Line
 	7800 4600 7700 4600
 $Comp
-L power:+3.3V #PWR?
+L power:+3.3V #PWR0101
 U 1 1 5F585D3D
 P 7000 4600
-F 0 "#PWR?" H 7000 4450 50  0001 C CNN
+F 0 "#PWR0101" H 7000 4450 50  0001 C CNN
 F 1 "+3.3V" H 7015 4773 50  0000 C CNN
 F 2 "" H 7000 4600 50  0001 C CNN
 F 3 "" H 7000 4600 50  0001 C CNN
@@ -145,10 +145,10 @@ $EndComp
 Wire Wire Line
 	8900 4600 10000 4600
 $Comp
-L power:+2V5 #PWR?
+L power:+2V5 #PWR0102
 U 1 1 5F58652C
 P 10000 4600
-F 0 "#PWR?" H 10000 4450 50  0001 C CNN
+F 0 "#PWR0102" H 10000 4450 50  0001 C CNN
 F 1 "+2V5" H 10015 4773 50  0000 C CNN
 F 2 "" H 10000 4600 50  0001 C CNN
 F 3 "" H 10000 4600 50  0001 C CNN
@@ -162,4 +162,64 @@ Wire Wire Line
 Connection ~ 7700 4600
 Wire Wire Line
 	7700 4600 7000 4600
+$Comp
+L power:+5V #PWR0205
+U 1 1 5F5DB17B
+P 5850 6650
+F 0 "#PWR0205" H 5850 6500 50  0001 C CNN
+F 1 "+5V" H 5865 6823 50  0000 C CNN
+F 2 "" H 5850 6650 50  0001 C CNN
+F 3 "" H 5850 6650 50  0001 C CNN
+	1    5850 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper_NC_Dual JP201
+U 1 1 5F5DCDBD
+P 5850 6750
+F 0 "JP201" H 5850 6897 50  0000 C CNN
+F 1 "Jumper_NC_Dual" H 5850 6988 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5850 6750 50  0001 C CNN
+F 3 "~" H 5850 6750 50  0001 C CNN
+F 4 "535-ME-100 " H 5850 6750 50  0001 C CNN "Mouser"
+F 5 "A860AR-ND" H 5850 6750 50  0001 C CNN "DigiKey"
+	1    5850 6750
+	-1   0    0    1   
+$EndComp
+$Comp
+L dk_Barrel-Power-Connectors:PJ-102A J201
+U 1 1 5F5E0C37
+P 5100 6750
+F 0 "J201" H 5033 6975 50  0000 C CNN
+F 1 "PJ-102A" H 5033 6884 50  0000 C CNN
+F 2 "digikey-footprints:Barrel_Jack_5.5mmODx2.1mmID_PJ-102A" H 5300 6950 60  0001 L CNN
+F 3 "https://www.cui.com/product/resource/digikeypdf/pj-102a.pdf" H 5300 7050 60  0001 L CNN
+F 4 "490-PJ-102A" H 5100 6750 50  0001 C CNN "Mouser"
+F 5 "CP-102A-ND" H 5300 7150 60  0001 L CNN "DigiKey"
+	1    5100 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0204
+U 1 1 5F5E9A9C
+P 5400 7050
+F 0 "#PWR0204" H 5400 6800 50  0001 C CNN
+F 1 "GND" H 5405 6877 50  0000 C CNN
+F 2 "" H 5400 7050 50  0001 C CNN
+F 3 "" H 5400 7050 50  0001 C CNN
+	1    5400 7050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 6750 5200 6750
+Wire Wire Line
+	5400 7050 5400 6950
+Wire Wire Line
+	5400 6950 5200 6950
+Text Label 5250 6750 0    50   ~ 0
+5v-plug
+Wire Wire Line
+	6100 6750 6500 6750
+Text Label 6150 6750 0    50   ~ 0
+5v-regulator
 $EndSCHEMATC
