@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 11
+Sheet 4 12
 Title ""
 Date ""
 Rev ""
@@ -103,17 +103,6 @@ F 10 "IC TRNSLTR BIDIRECTIONAL 20TSSOP" H 2200 4000 60  0001 L CNN "Description"
 F 11 "Texas Instruments" H 2200 4100 60  0001 L CNN "Manufacturer"
 F 12 "Active" H 2200 4200 60  0001 L CNN "Status"
 	1    2000 3000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x10_Odd_Even J401
-U 1 1 5F5F684D
-P 4650 6000
-F 0 "J401" H 4700 6617 50  0000 C CNN
-F 1 "Conn_02x10_Row_Letter_First" H 4700 6526 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 4650 6000 50  0001 C CNN
-F 3 "~" H 4650 6000 50  0001 C CNN
-	1    4650 6000
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
