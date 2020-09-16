@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 12
+Sheet 2 15
 Title ""
 Date ""
 Rev ""
@@ -13,595 +13,99 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 6100 2250 0    59   ~ 0
-Ideas so far:\n\n5v, 3v3, 1v2 volt rails, all by TPS54331 TI step down regulators. 3A capable.\n2v5 reference rail with an LDO\n1v8 for IMU \n\nPower in: 10v 2A From 4-in-1 ESC\nAlternate: 5v from DC plug or USB. Add jumper to enable switching between supplies
+Text Notes 5550 3150 0    67   ~ 0
+Power requirements:\n1v2 (FPGA core): 1.5A estimated. Supply 2A to have margin. Derived from 5v rail. \n       -- 1v2 at 2A is 2.4 watt. 90% regulator efficiency: 2.7 watt input. Around 540mA drain on 5v rail.\n       -- Regulator: AP63200WU-7\n\n2v5 (FPGA PLL): 40mA estimated. Use small LDO, derived from 3v3. 40mA drain on 3v3 rail.\n        -- Regulator: NCP115ASN250T2G\n\n3v3 (FPGA IO, sensors, radio, flash, LEDs, GPIO): Radio combined max 110mA, LEDs max 150mA, \n       -- Sensors: combined less than 20mA, FPGA-IO: 100mA, 2v5LDO: 40mA. Total combined: 380mA. \n       -- With a 1.5A regulator that leaves more and 1amps for the GPIOs. Should be good enough. \n       -- 3v3 at 1.5A is 4.95 watts, 90% efficency: 5.5 watts. 1.1Amps drain on 5v rail.\n       -- Regulator: SC189ZSKTRT\n\n5v (Other power rails, ADC, GPIO): 1v2: 540mA, 3v3: 1.1A, ADC <1mA. Total: 1.65 A. Powered by either \n       -- 2A regulator or DC power plug, even with everything on full power, that leaves 350mA for GPIO.\n       -- Regulator: AP63205WU-7\n\n5v USB (FTDI): Self powered through USB.\n\n\nPower in: 10v 2A From 4-in-1 ESC\nAlternate: 5v from DC plug. Added jumper to enable switching between supplies
 $Comp
-L SamacSys_Parts:TPS54331DR U201
-U 1 1 5F564651
-P 2300 1200
-F 0 "U201" H 2500 1550 50  0000 L CNN
-F 1 "TPS54331DR" H 2500 1450 50  0000 L CNN
-F 2 "SOIC127P600X175-8N" H 3350 1300 50  0001 L CNN
-F 3 "http://www.ti.com/lit/gpn/tps54331" H 3350 1200 50  0001 L CNN
-F 4 "Texas Instruments TPS54331DR, Step Down DC-DC Converter, 3A, Adjustable, 0.8  25 V, 8-Pin SOIC" H 3350 1100 50  0001 L CNN "Description"
-F 5 "1.75" H 3350 1000 50  0001 L CNN "Height"
-F 6 "595-TPS54331DR" H 3350 900 50  0001 L CNN "Mouser Part Number"
-F 7 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS54331DR?qs=QyYHynRG50rsSYcB%2Ftz4Yw%3D%3D" H 3350 800 50  0001 L CNN "Mouser Price/Stock"
-F 8 "Texas Instruments" H 3350 700 50  0001 L CNN "Manufacturer_Name"
-F 9 "TPS54331DR" H 3350 600 50  0001 L CNN "Manufacturer_Part_Number"
-F 10 "595-TPS54331DR" H 2300 1200 50  0001 C CNN "Mouser"
-F 11 "296-26991-1-ND " H 2300 1200 50  0001 C CNN "DigiKey"
-F 12 "C9865" H 2300 1200 50  0001 C CNN "LCSC"
-	1    2300 1200
-	1    0    0    -1  
-$EndComp
-$Comp
-L SamacSys_Parts:TPS54331DR U202
-U 1 1 5F5665A2
-P 9850 950
-F 0 "U202" H 10150 1300 50  0000 C CNN
-F 1 "TPS54331DR" H 10300 1200 50  0000 C CNN
-F 2 "SOIC127P600X175-8N" H 10900 1050 50  0001 L CNN
-F 3 "http://www.ti.com/lit/gpn/tps54331" H 10900 950 50  0001 L CNN
-F 4 "Texas Instruments TPS54331DR, Step Down DC-DC Converter, 3A, Adjustable, 0.8  25 V, 8-Pin SOIC" H 10900 850 50  0001 L CNN "Description"
-F 5 "1.75" H 10900 750 50  0001 L CNN "Height"
-F 6 "595-TPS54331DR" H 10900 650 50  0001 L CNN "Mouser Part Number"
-F 7 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS54331DR?qs=QyYHynRG50rsSYcB%2Ftz4Yw%3D%3D" H 10900 550 50  0001 L CNN "Mouser Price/Stock"
-F 8 "Texas Instruments" H 10900 450 50  0001 L CNN "Manufacturer_Name"
-F 9 "TPS54331DR" H 10900 350 50  0001 L CNN "Manufacturer_Part_Number"
-F 10 "595-TPS54331DR" H 9850 950 50  0001 C CNN "Mouser"
-F 11 "296-26991-1-ND " H 9850 950 50  0001 C CNN "DigiKey"
-F 12 "C9865" H 9850 950 50  0001 C CNN "LCSC"
-	1    9850 950 
-	1    0    0    -1  
-$EndComp
-$Comp
-L SamacSys_Parts:TPS54331DR U203
-U 1 1 5F566CDB
-P 9850 2950
-F 0 "U203" H 10150 3300 50  0000 C CNN
-F 1 "TPS54331DR" H 10300 3200 50  0000 C CNN
-F 2 "SOIC127P600X175-8N" H 10900 3050 50  0001 L CNN
-F 3 "http://www.ti.com/lit/gpn/tps54331" H 10900 2950 50  0001 L CNN
-F 4 "Texas Instruments TPS54331DR, Step Down DC-DC Converter, 3A, Adjustable, 0.8  25 V, 8-Pin SOIC" H 10900 2850 50  0001 L CNN "Description"
-F 5 "1.75" H 10900 2750 50  0001 L CNN "Height"
-F 6 "595-TPS54331DR" H 10900 2650 50  0001 L CNN "Mouser Part Number"
-F 7 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS54331DR?qs=QyYHynRG50rsSYcB%2Ftz4Yw%3D%3D" H 10900 2550 50  0001 L CNN "Mouser Price/Stock"
-F 8 "Texas Instruments" H 10900 2450 50  0001 L CNN "Manufacturer_Name"
-F 9 "TPS54331DR" H 10900 2350 50  0001 L CNN "Manufacturer_Part_Number"
-F 10 "595-TPS54331DR" H 9850 2950 50  0001 C CNN "Mouser"
-F 11 "296-26991-1-ND " H 9850 2950 50  0001 C CNN "DigiKey"
-F 12 "C9865" H 9850 2950 50  0001 C CNN "LCSC"
-	1    9850 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+10V #PWR0201
-U 1 1 5F56C393
-P 800 1150
-F 0 "#PWR0201" H 800 1000 50  0001 C CNN
-F 1 "+10V" H 815 1323 50  0000 C CNN
-F 2 "" H 800 1150 50  0001 C CNN
-F 3 "" H 800 1150 50  0001 C CNN
-	1    800  1150
-	1    0    0    -1  
-$EndComp
-$Comp
-L SamacSys_Parts:TPS73701DCQ U204
-U 1 1 5F567988
-P 7800 4600
-F 0 "U204" H 8150 4900 50  0000 C CNN
-F 1 "TPS73701DCQ" H 8300 4800 50  0000 C CNN
-F 2 "SOT127P706X180-6N" H 9050 4700 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tps737.pdf" H 9050 4600 50  0001 L CNN
-F 4 "TPS73701DCQ, Low Dropout Voltage Regulator, Adjustable 1A, 1.2  5.5 V +/-1%, 6-Pin SOT-223" H 9050 4500 50  0001 L CNN "Description"
-F 5 "595-TPS73701DCQ " H 7800 4600 50  0001 C CNN "Mouser"
-F 6 "296-27066-1-ND" H 7800 4600 50  0001 C CNN "DigiKey"
-F 7 "-" H 7800 4600 50  0001 C CNN "LCSC"
-	1    7800 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7800 4600 7700 4600
-$Comp
-L power:+3.3V #PWR0101
-U 1 1 5F585D3D
-P 7000 4600
-F 0 "#PWR0101" H 7000 4450 50  0001 C CNN
-F 1 "+3.3V" H 7015 4773 50  0000 C CNN
-F 2 "" H 7000 4600 50  0001 C CNN
-F 3 "" H 7000 4600 50  0001 C CNN
-	1    7000 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8900 4600 10000 4600
-$Comp
-L power:+2V5 #PWR0102
-U 1 1 5F58652C
-P 10000 4600
-F 0 "#PWR0102" H 10000 4450 50  0001 C CNN
-F 1 "+2V5" H 10015 4773 50  0000 C CNN
-F 2 "" H 10000 4600 50  0001 C CNN
-F 3 "" H 10000 4600 50  0001 C CNN
-	1    10000 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7800 4850 7700 4850
-Wire Wire Line
-	7700 4850 7700 4600
-Connection ~ 7700 4600
-Wire Wire Line
-	7700 4600 7000 4600
-$Comp
-L power:+5V #PWR0205
+L power:+5V #PWR0202
 U 1 1 5F5DB17B
-P 5850 6650
-F 0 "#PWR0205" H 5850 6500 50  0001 C CNN
-F 1 "+5V" H 5865 6823 50  0000 C CNN
-F 2 "" H 5850 6650 50  0001 C CNN
-F 3 "" H 5850 6650 50  0001 C CNN
-	1    5850 6650
+P 8100 4900
+F 0 "#PWR0202" H 8100 4750 50  0001 C CNN
+F 1 "+5V" H 8115 5073 50  0000 C CNN
+F 2 "" H 8100 4900 50  0001 C CNN
+F 3 "" H 8100 4900 50  0001 C CNN
+	1    8100 4900
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:Jumper_NC_Dual JP201
 U 1 1 5F5DCDBD
-P 5850 6750
-F 0 "JP201" H 5850 6897 50  0000 C CNN
-F 1 "Jumper_NC_Dual" H 5850 6988 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5850 6750 50  0001 C CNN
-F 3 "~" H 5850 6750 50  0001 C CNN
-F 4 "535-ME-100 " H 5850 6750 50  0001 C CNN "Mouser"
-F 5 "A860AR-ND" H 5850 6750 50  0001 C CNN "DigiKey"
-	1    5850 6750
+P 8100 5000
+F 0 "JP201" H 8100 5147 50  0000 C CNN
+F 1 "Jumper_NC_Dual" H 8100 5238 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8100 5000 50  0001 C CNN
+F 3 "~" H 8100 5000 50  0001 C CNN
+F 4 "535-ME-100 " H 8100 5000 50  0001 C CNN "Mouser"
+F 5 "A860AR-ND" H 8100 5000 50  0001 C CNN "DigiKey"
+	1    8100 5000
 	-1   0    0    1   
 $EndComp
 $Comp
 L dk_Barrel-Power-Connectors:PJ-102A J201
 U 1 1 5F5E0C37
-P 5100 6750
-F 0 "J201" H 5033 6975 50  0000 C CNN
-F 1 "PJ-102A" H 5033 6884 50  0000 C CNN
-F 2 "digikey-footprints:Barrel_Jack_5.5mmODx2.1mmID_PJ-102A" H 5300 6950 60  0001 L CNN
-F 3 "https://www.cui.com/product/resource/digikeypdf/pj-102a.pdf" H 5300 7050 60  0001 L CNN
-F 4 "490-PJ-102A" H 5100 6750 50  0001 C CNN "Mouser"
-F 5 "CP-102A-ND" H 5300 7150 60  0001 L CNN "DigiKey"
-	1    5100 6750
+P 7350 5000
+F 0 "J201" H 7283 5225 50  0000 C CNN
+F 1 "PJ-102A" H 7283 5134 50  0000 C CNN
+F 2 "digikey-footprints:Barrel_Jack_5.5mmODx2.1mmID_PJ-102A" H 7550 5200 60  0001 L CNN
+F 3 "https://www.cui.com/product/resource/digikeypdf/pj-102a.pdf" H 7550 5300 60  0001 L CNN
+F 4 "490-PJ-102A" H 7350 5000 50  0001 C CNN "Mouser"
+F 5 "CP-102A-ND" H 7550 5400 60  0001 L CNN "DigiKey"
+	1    7350 5000
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0204
+L power:GND #PWR0201
 U 1 1 5F5E9A9C
-P 5400 7050
-F 0 "#PWR0204" H 5400 6800 50  0001 C CNN
-F 1 "GND" H 5405 6877 50  0000 C CNN
-F 2 "" H 5400 7050 50  0001 C CNN
-F 3 "" H 5400 7050 50  0001 C CNN
-	1    5400 7050
+P 7650 5300
+F 0 "#PWR0201" H 7650 5050 50  0001 C CNN
+F 1 "GND" H 7655 5127 50  0000 C CNN
+F 2 "" H 7650 5300 50  0001 C CNN
+F 3 "" H 7650 5300 50  0001 C CNN
+	1    7650 5300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5600 6750 5200 6750
+	7850 5000 7450 5000
 Wire Wire Line
-	5400 7050 5400 6950
+	7650 5300 7650 5200
 Wire Wire Line
-	5400 6950 5200 6950
-Text Label 5250 6750 0    50   ~ 0
+	7650 5200 7450 5200
+Text Label 7500 5000 0    50   ~ 0
 5v-plug
 Wire Wire Line
-	6100 6750 6500 6750
-Text Label 6150 6750 0    50   ~ 0
+	8350 5000 8750 5000
+Text Label 8400 5000 0    50   ~ 0
 5v-regulator
-$Comp
-L power:GND #PWR0202
-U 1 1 5F5E4987
-P 800 1600
-F 0 "#PWR0202" H 800 1350 50  0001 C CNN
-F 1 "GND" H 805 1427 50  0000 C CNN
-F 2 "" H 800 1600 50  0001 C CNN
-F 3 "" H 800 1600 50  0001 C CNN
-	1    800  1600
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C201
-U 1 1 5F5E56AE
-P 800 1400
-F 0 "C201" H 892 1446 50  0000 L CNN
-F 1 "22uF 25v" H 892 1355 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 800 1400 50  0001 C CNN
-F 3 "~" H 800 1400 50  0001 C CNN
-F 4 "C45783" H 800 1400 50  0001 C CNN "LCSC"
-	1    800  1400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C204
-U 1 1 5F5E659F
-P 2200 2100
-F 0 "C204" H 2292 2146 50  0000 L CNN
-F 1 "8n2F" H 2292 2055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 2200 2100 50  0001 C CNN
-F 3 "~" H 2200 2100 50  0001 C CNN
-F 4 "C27920" H 2200 2100 50  0001 C CNN "LCSC"
-	1    2200 2100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C203
-U 1 1 5F5E76A9
-P 1850 2100
-F 0 "C203" H 1942 2146 50  0000 L CNN
-F 1 "1nF" H 1942 2055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1850 2100 50  0001 C CNN
-F 3 "~" H 1850 2100 50  0001 C CNN
-F 4 "C1523" H 1850 2100 50  0001 C CNN "LCSC"
-	1    1850 2100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C205
-U 1 1 5F5E7EFA
-P 3450 1150
-F 0 "C205" H 3542 1196 50  0000 L CNN
-F 1 "100nF" H 3542 1105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 3450 1150 50  0001 C CNN
-F 3 "~" H 3450 1150 50  0001 C CNN
-F 4 "C1525" H 3450 1150 50  0001 C CNN "LCSC"
-	1    3450 1150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C206
-U 1 1 5F5E8409
-P 4400 1450
-F 0 "C206" H 4492 1496 50  0000 L CNN
-F 1 "47uF" H 4492 1405 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" H 4400 1450 50  0001 C CNN
-F 3 "~" H 4400 1450 50  0001 C CNN
-F 4 "C96123" H 4400 1450 50  0001 C CNN "LCSC"
-	1    4400 1450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R203
-U 1 1 5F5E91BD
-P 1850 1800
-F 0 "R203" V 1950 1700 50  0000 L CNN
-F 1 "62K" V 1850 1700 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 1780 1800 50  0001 C CNN
-F 3 "~" H 1850 1800 50  0001 C CNN
-F 4 "C23221" H 1850 1800 50  0001 C CNN "LCSC"
-	1    1850 1800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R204
-U 1 1 5F5E9DD9
-P 4100 1500
-F 0 "R204" H 4170 1546 50  0000 L CNN
-F 1 "10K" V 4100 1400 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 4030 1500 50  0001 C CNN
-F 3 "~" H 4100 1500 50  0001 C CNN
-F 4 "C25744" H 4100 1500 50  0001 C CNN "LCSC"
-	1    4100 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R205
-U 1 1 5F5EAB42
-P 4100 1950
-F 0 "R205" H 4170 1996 50  0000 L CNN
-F 1 "1.8K" V 4100 1850 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 4030 1950 50  0001 C CNN
-F 3 "~" H 4100 1950 50  0001 C CNN
-F 4 "C4177" H 4100 1950 50  0001 C CNN "LCSC"
-	1    4100 1950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R201
-U 1 1 5F5EAE7C
-P 1300 1350
-F 0 "R201" V 1400 1250 50  0000 L CNN
-F 1 "330K" V 1300 1250 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 1230 1350 50  0001 C CNN
-F 3 "~" H 1300 1350 50  0001 C CNN
-F 4 "C25778" H 1300 1350 50  0001 C CNN "LCSC"
-	1    1300 1350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R202
-U 1 1 5F5EB200
-P 1300 1750
-F 0 "R202" V 1400 1650 50  0000 L CNN
-F 1 "68K" V 1300 1650 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 1230 1750 50  0001 C CNN
-F 3 "~" H 1300 1750 50  0001 C CNN
-F 4 "C36871" H 1300 1750 50  0001 C CNN "LCSC"
-	1    1300 1750
-	1    0    0    -1  
-$EndComp
+Wire Notes Line
+	6850 4500 9100 4500
+Wire Notes Line
+	9100 4500 9100 5700
+Wire Notes Line
+	9100 5700 6850 5700
+Wire Notes Line
+	6850 5700 6850 4500
+Text Notes 7200 4500 0    67   ~ 0
+5v DC plug and 5v rail jumper
+$Sheet
+S 950  800  1650 900 
+U 5F626889
+F0 "5v Power regulator" 67
+F1 "5v-power-regulator.sch" 67
+F2 "5v-regulator-out" O R 2600 1300 67 
+$EndSheet
 Wire Wire Line
-	800  1150 1300 1150
-Wire Wire Line
-	800  1150 800  1300
-Connection ~ 800  1150
-Wire Wire Line
-	800  1500 800  1600
-$Comp
-L power:GND #PWR0203
-U 1 1 5F5EDA30
-P 1300 2000
-F 0 "#PWR0203" H 1300 1750 50  0001 C CNN
-F 1 "GND" H 1305 1827 50  0000 C CNN
-F 2 "" H 1300 2000 50  0001 C CNN
-F 3 "" H 1300 2000 50  0001 C CNN
-	1    1300 2000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1300 1150 1300 1200
-Connection ~ 1300 1150
-Wire Wire Line
-	1300 1150 2300 1150
-Wire Wire Line
-	1300 1500 1300 1550
-Wire Wire Line
-	1300 1900 1300 2000
-Wire Wire Line
-	1300 1550 1550 1550
-Wire Wire Line
-	1550 1550 1550 1300
-Wire Wire Line
-	1550 1300 2300 1300
-Connection ~ 1300 1550
-Wire Wire Line
-	1300 1550 1300 1600
-$Comp
-L power:GND #PWR0208
-U 1 1 5F5F03D1
-P 2200 2250
-F 0 "#PWR0208" H 2200 2000 50  0001 C CNN
-F 1 "GND" H 2205 2077 50  0000 C CNN
-F 2 "" H 2200 2250 50  0001 C CNN
-F 3 "" H 2200 2250 50  0001 C CNN
-	1    2200 2250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0207
-U 1 1 5F5F075E
-P 1850 2250
-F 0 "#PWR0207" H 1850 2000 50  0001 C CNN
-F 1 "GND" H 1855 2077 50  0000 C CNN
-F 2 "" H 1850 2250 50  0001 C CNN
-F 3 "" H 1850 2250 50  0001 C CNN
-	1    1850 2250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0206
-U 1 1 5F5F089D
-P 1500 2250
-F 0 "#PWR0206" H 1500 2000 50  0001 C CNN
-F 1 "GND" H 1505 2077 50  0000 C CNN
-F 2 "" H 1500 2250 50  0001 C CNN
-F 3 "" H 1500 2250 50  0001 C CNN
-	1    1500 2250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1500 2200 1500 2250
-Wire Wire Line
-	1850 2200 1850 2250
-Wire Wire Line
-	2200 2200 2200 2250
-Wire Wire Line
-	1850 1950 1850 2000
-Wire Wire Line
-	2300 1900 2200 1900
-Wire Wire Line
-	2200 1900 2200 2000
-Wire Wire Line
-	2300 1750 2200 1750
-Wire Wire Line
-	2200 1750 2200 1650
-Wire Wire Line
-	1500 1650 1500 2000
-Connection ~ 1850 1650
-$Comp
-L Device:C_Small C202
-U 1 1 5F5E7C50
-P 1500 2100
-F 0 "C202" H 1592 2146 50  0000 L CNN
-F 1 "10pF" H 1592 2055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1500 2100 50  0001 C CNN
-F 3 "~" H 1500 2100 50  0001 C CNN
-F 4 "C32949" H 1500 2100 50  0001 C CNN "LCSC"
-	1    1500 2100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1850 1650 1500 1650
-Wire Wire Line
-	1850 1650 2200 1650
-$Comp
-L power:GND #PWR0209
-U 1 1 5F5F4EAB
-P 3350 2000
-F 0 "#PWR0209" H 3350 1750 50  0001 C CNN
-F 1 "GND" H 3355 1827 50  0000 C CNN
-F 2 "" H 3350 2000 50  0001 C CNN
-F 3 "" H 3350 2000 50  0001 C CNN
-	1    3350 2000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3300 1900 3350 1900
-Wire Wire Line
-	3350 1900 3350 2000
-Wire Wire Line
-	3300 1300 3450 1300
-Text Label 5750 1300 0    50   ~ 0
+	2600 1300 3000 1300
+Text Label 3000 1300 0    67   ~ 0
 5v-regulator
-$Comp
-L Device:D_Schottky_Small D201
-U 1 1 5F5F66AE
-P 3550 1450
-F 0 "D201" V 3504 1520 50  0000 L CNN
-F 1 "3A 60v" V 3595 1520 50  0000 L CNN
-F 2 "Diode_SMD:D_SMC" V 3550 1450 50  0001 C CNN
-F 3 "~" V 3550 1450 50  0001 C CNN
-F 4 "C35722" V 3550 1450 50  0001 C CNN "LCSC"
-	1    3550 1450
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3300 1150 3300 1000
-Wire Wire Line
-	3300 1000 3450 1000
-Wire Wire Line
-	3450 1000 3450 1050
-Wire Wire Line
-	3450 1250 3450 1300
-Connection ~ 3450 1300
-Wire Wire Line
-	3450 1300 3550 1300
-$Comp
-L power:GND #PWR0210
-U 1 1 5F5FDA7D
-P 3550 1550
-F 0 "#PWR0210" H 3550 1300 50  0001 C CNN
-F 1 "GND" H 3555 1377 50  0000 C CNN
-F 2 "" H 3550 1550 50  0001 C CNN
-F 3 "" H 3550 1550 50  0001 C CNN
-	1    3550 1550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3550 1350 3550 1300
-$Comp
-L Device:L_Small L201
-U 1 1 5F600FCE
-P 3900 1300
-F 0 "L201" V 4085 1300 50  0000 C CNN
-F 1 "5u6H" V 3994 1300 50  0000 C CNN
-F 2 "Inductor_SMD:L_Bourns_SRN8040TA" H 3900 1300 50  0001 C CNN
-F 3 "~" H 3900 1300 50  0001 C CNN
-F 4 "652-SRN8040TA-5R6M" V 3900 1300 50  0001 C CNN "Mouser"
-F 5 "SRN8040TA-5R6MCT-ND" V 3900 1300 50  0001 C CNN "DigiKey"
-	1    3900 1300
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	4000 1300 4100 1300
-Wire Wire Line
-	3550 1300 3800 1300
-Connection ~ 3550 1300
-$Comp
-L Device:R R206
-U 1 1 5F603666
-P 4100 2300
-F 0 "R206" H 4170 2346 50  0000 L CNN
-F 1 "100R" V 4100 2200 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 4030 2300 50  0001 C CNN
-F 3 "~" H 4100 2300 50  0001 C CNN
-F 4 "C25076" H 4100 2300 50  0001 C CNN "LCSC"
-	1    4100 2300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4100 1350 4100 1300
-Connection ~ 4100 1300
-Wire Wire Line
-	4100 1300 4400 1300
-Wire Wire Line
-	4100 1650 4100 1750
-Wire Wire Line
-	3300 1750 4100 1750
-Connection ~ 4100 1750
-Wire Wire Line
-	4100 1750 4100 1800
-Wire Wire Line
-	4100 2100 4100 2150
-$Comp
-L power:GND #PWR0211
-U 1 1 5F609176
-P 4100 2500
-F 0 "#PWR0211" H 4100 2250 50  0001 C CNN
-F 1 "GND" H 4105 2327 50  0000 C CNN
-F 2 "" H 4100 2500 50  0001 C CNN
-F 3 "" H 4100 2500 50  0001 C CNN
-	1    4100 2500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4100 2450 4100 2500
-$Comp
-L Device:C_Small C207
-U 1 1 5F60AD55
-P 4750 1450
-F 0 "C207" H 4842 1496 50  0000 L CNN
-F 1 "47uF" H 4842 1405 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" H 4750 1450 50  0001 C CNN
-F 3 "~" H 4750 1450 50  0001 C CNN
-F 4 "C96123" H 4750 1450 50  0001 C CNN "LCSC"
-	1    4750 1450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C208
-U 1 1 5F60B086
-P 5100 1450
-F 0 "C208" H 5192 1496 50  0000 L CNN
-F 1 "47uF" H 5192 1405 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" H 5100 1450 50  0001 C CNN
-F 3 "~" H 5100 1450 50  0001 C CNN
-F 4 "C96123" H 5100 1450 50  0001 C CNN "LCSC"
-	1    5100 1450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0212
-U 1 1 5F60B594
-P 4750 1650
-F 0 "#PWR0212" H 4750 1400 50  0001 C CNN
-F 1 "GND" H 4755 1477 50  0000 C CNN
-F 2 "" H 4750 1650 50  0001 C CNN
-F 3 "" H 4750 1650 50  0001 C CNN
-	1    4750 1650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4400 1350 4400 1300
-Connection ~ 4400 1300
-Wire Wire Line
-	4400 1300 4750 1300
-Wire Wire Line
-	4750 1350 4750 1300
-Connection ~ 4750 1300
-Wire Wire Line
-	4750 1300 5100 1300
-Wire Wire Line
-	5100 1350 5100 1300
-Connection ~ 5100 1300
-Wire Wire Line
-	5100 1300 5800 1300
-Wire Wire Line
-	4400 1550 4400 1600
-Wire Wire Line
-	4400 1600 4750 1600
-Wire Wire Line
-	4750 1600 4750 1650
-Wire Wire Line
-	5100 1550 5100 1600
-Wire Wire Line
-	5100 1600 4750 1600
-Connection ~ 4750 1600
-Wire Wire Line
-	4750 1550 4750 1600
+$Sheet
+S 950  2050 1650 850 
+U 5F63B9F1
+F0 "3v3 and 2v5 power regulators" 67
+F1 "3v3-2v5-regulator.sch" 67
+$EndSheet
+$Sheet
+S 950  3300 1650 850 
+U 5F6564BB
+F0 "1v2 power regulator" 67
+F1 "1v2-power-regulator.sch" 67
+$EndSheet
 $EndSCHEMATC

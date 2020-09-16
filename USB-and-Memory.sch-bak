@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 12
+Sheet 4 15
 Title ""
 Date ""
 Rev ""
@@ -16,10 +16,10 @@ $EndDescr
 Text Notes 4800 1600 0    59   ~ 0
 USB: FTDI FT232H or FTDI FT232R\n\nMemory: Memory for FPGA bitstream data: MT25QL128ABA (non-JLC part)\n\nMemory: For FPGA user accessable data storage: W25Q128JVSIQ \n
 $Comp
-L Interface_USB:FT232H U301
+L Interface_USB:FT232H U501
 U 1 1 5F5894AD
 P 3000 3800
-F 0 "U301" H 3000 5481 50  0000 C CNN
+F 0 "U501" H 3000 5481 50  0000 C CNN
 F 1 "FT232H" H 3000 5390 50  0000 C CNN
 F 2 "Package_QFP:LQFP-48_7x7mm_P0.5mm" H 3000 3800 50  0001 C CNN
 F 3 "https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf" H 3000 3800 50  0001 C CNN
@@ -30,10 +30,10 @@ F 6 "Extended and expensive" H 3000 3800 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L dk_USB-DVI-HDMI-Connectors:UJ2-MBH-1-SMT-TR J301
+L dk_USB-DVI-HDMI-Connectors:UJ2-MBH-1-SMT-TR J501
 U 1 1 5F5BD744
 P 5100 6000
-F 0 "J301" H 5125 6652 60  0000 C CNN
+F 0 "J501" H 5125 6652 60  0000 C CNN
 F 1 "UJ2-MBH-1-SMT-TR" H 5125 6546 60  0000 C CNN
 F 2 "digikey-footprints:USB_Mini_B_Female_UJ2-MBH-1-SMT-TR" H 5300 6200 60  0001 L CNN
 F 3 "https://www.cui.com/product/resource/digikeypdf/uj2-mbh-smt.pdf" H 5300 6300 60  0001 L CNN
